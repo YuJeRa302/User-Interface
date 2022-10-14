@@ -27,35 +27,22 @@ public class UpdateHealthBar : MonoBehaviour
         _player.HealthBarUpdate -= OnChangeHealth;
     }
 
-    public void OnChangeHealth()
+    public void OnChangeHealth(int target)
     {
         if (_healthChange != null)
         {
             StopCoroutine(_healthChange);
-            _healthChange = ChangeHealth(_player.IsChangeHealth);
-            StartCoroutine(_healthChange);
         }
-        else
-        {
-            if (_healthChange != null)
-            {
-                StopCoroutine(_healthChange);
-            }
 
-            _healthChange = ChangeHealth(_player.IsChangeHealth);
-            StartCoroutine(_healthChange);
-        }
+        _healthChange = ChangeHealth(target);
+        StartCoroutine(_healthChange);
     }
 
-    private IEnumerator ChangeHealth(bool isChangeHealth)
+    private IEnumerator ChangeHealth(int target)
     {
-        int value = isChangeHealth ? _player.Damage : _player.HealHealth;
-
-        while (value >= 0)
+        while (_slider.value != target)
         {
-            var _changeValue = isChangeHealth ? _slider.value - value : _slider.value + value;
-            _slider.value = Mathf.MoveTowards(_slider.value, _changeValue, _speed);
-            value--;
+            _slider.value = Mathf.MoveTowards(_slider.value, target, _speed);
             yield return new WaitForSeconds(_delay);
         }
     }
