@@ -19,12 +19,12 @@ public class UpdateHealthBar : MonoBehaviour
 
     private void OnEnable()
     {
-        _player.HealthBarUpdate += OnChangeHealth;
+        _player.ChangedHealth += OnChangeHealth;
     }
 
     private void OnDisable()
     {
-        _player.HealthBarUpdate -= OnChangeHealth;
+        _player.ChangedHealth -= OnChangeHealth;
     }
 
     public void OnChangeHealth(int target)
@@ -40,10 +40,12 @@ public class UpdateHealthBar : MonoBehaviour
 
     private IEnumerator ChangeHealth(int target)
     {
+        var waitForSeconds = new WaitForSeconds(_delay);
+
         while (_slider.value != target)
         {
             _slider.value = Mathf.MoveTowards(_slider.value, target, _speed);
-            yield return new WaitForSeconds(_delay);
+            yield return waitForSeconds;
         }
     }
 }

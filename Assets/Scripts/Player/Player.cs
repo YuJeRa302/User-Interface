@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     private int _maxHealth = 100;
     private UnityEvent<int> _healthBarUpdate = new UnityEvent<int>();
 
-    public event UnityAction<int> HealthBarUpdate
+    public event UnityAction<int> ChangedHealth
     {
         add => _healthBarUpdate.AddListener(value);
         remove => _healthBarUpdate.RemoveListener(value);
@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
         _healthBarUpdate.Invoke(_currentHealth);
     }
 
-    public void Healing()
+    public void Heal()
     {
         _currentHealth = Mathf.Clamp(_currentHealth + _healing, _minHealth, _maxHealth);
         _healthBarUpdate.Invoke(_currentHealth);
