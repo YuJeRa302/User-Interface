@@ -384,6 +384,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1326508536 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8809182296207305603, guid: 5fde0c824dc7eff4db57b47d89dc0e64, type: 3}
+  m_PrefabInstance: {fileID: 6335289128425135134}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbfed18279fb0094da50fc3bf5303b53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1882651953
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,6 +747,22 @@ PrefabInstance:
       propertyPath: m_Value
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 2603298566067904003, guid: 5fde0c824dc7eff4db57b47d89dc0e64, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603298566067904003, guid: 5fde0c824dc7eff4db57b47d89dc0e64, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1326508536}
+    - target: {fileID: 2603298566067904003, guid: 5fde0c824dc7eff4db57b47d89dc0e64, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnChangeHealth
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603298566067904003, guid: 5fde0c824dc7eff4db57b47d89dc0e64, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UpdateHealthBar, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6333612454440691933, guid: 5fde0c824dc7eff4db57b47d89dc0e64, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -784,6 +811,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8809182296207305603, guid: 5fde0c824dc7eff4db57b47d89dc0e64, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 6335289128425135135}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fde0c824dc7eff4db57b47d89dc0e64, type: 3}
 --- !u!114 &6335289128425135135 stripped
@@ -915,7 +946,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!95 &9005871465978719326
 Animator:
